@@ -7,9 +7,9 @@
     <string name="version">Version: 1.0</string>
     <string name="rights">All rights reserved!</string>
     <string name="name">Name: Strashimir Rashev</string>
-    <string name="dish">Dish -</string>
-    <string name="dessert">Dessert -</string>
-    <string name="drink">Drink -</string>
+    <string name="dish">"Dish - "</string>
+    <string name="dessert">"Dessert - "</string>
+    <string name="drink">"Drink - "</string>
     <string name="delivery">Home Delivery:</string>
     <string name="calculate">Calculate!</string>
     <string name="price">Total Price:</string>

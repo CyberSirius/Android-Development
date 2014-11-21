@@ -39,16 +39,16 @@
         android:layout_below="@+id/btnEUR"
         android:layout_alignParentStart="true"
         android:layout_marginTop="52dp"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
+        android:text="5.00"
         android:id="@+id/txtPriceDish"
         android:layout_alignTop="@+id/txtDish"
         android:layout_toEndOf="@+id/txtDish"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -57,7 +57,7 @@
         android:id="@+id/txtCurrencyDish"
         android:layout_alignTop="@+id/txtPriceDish"
         android:layout_toEndOf="@+id/txtPriceDish"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -67,37 +67,28 @@
         android:id="@+id/btnPlusDish"
         android:height="25dp"
         android:maxWidth="10dp"
-        android:layout_toEndOf="@+id/btnBGN"
         android:layout_alignTop="@+id/txtDishQuantity"
-        android:layout_toStartOf="@+id/btnUSD"
+        android:layout_toEndOf="@+id/txtDishQuantity"
         android:padding="0dp"
         android:layout_marginTop="-10dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="-"
-        android:id="@+id/btnMinusDish"
-        android:layout_alignTop="@+id/btnPlusDish"
-        android:layout_toEndOf="@+id/btnPlusDish"
-        android:layout_alignBottom="@+id/btnPlusDish"
-        android:layout_marginRight="33dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/txtDishQuantity"
+        android:textSize="23sp"
         android:layout_alignTop="@+id/txtCurrencyDish"
-        android:textSize="23dp"
-        android:layout_centerHorizontal="true" />
+        android:layout_toEndOf="@+id/btnBGN"
+        android:minWidth="30dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dessert"
         android:id="@+id/txtDessert"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:layout_below="@+id/btnPlusDish"
         android:layout_alignParentStart="true"
         android:layout_marginTop="33dp" />
@@ -105,11 +96,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
+        android:text="2.00"
         android:id="@+id/txtPriceDessert"
         android:layout_alignTop="@+id/txtDessert"
         android:layout_toEndOf="@id/txtDessert"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -118,17 +109,16 @@
         android:id="@+id/txtCurrencyDessert"
         android:layout_alignTop="@+id/txtPriceDessert"
         android:layout_toEndOf="@id/txtPriceDessert"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/txtDessertQuantity"
-        android:layout_toEndOf="@id/txtCurrencyDessert"
-        android:layout_alignTop="@+id/txtCurrencyDessert"
-        android:layout_alignStart="@+id/txtDishQuantity"
-        android:textSize="23dp" />
+        android:layout_toEndOf="@+id/btnBGN"
+        android:textSize="23sp"
+        android:layout_alignTop="@+id/txtCurrencyDessert" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -139,17 +129,26 @@
         android:layout_alignTop="@+id/txtDessertQuantity"
         android:layout_alignStart="@+id/btnPlusDish"
         android:layout_marginTop="-10dp"
-        android:layout_toStartOf="@+id/btnMinusDish" />
+        android:layout_toEndOf="@+id/txtDessertQuantity" />
 
     <Button
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="-"
         android:id="@+id/btnMinusDessert"
-        android:layout_toEndOf="@+id/btnPlusDish"
+        android:layout_toEndOf="@+id/btnPlusDessert"
         android:layout_alignTop="@+id/btnPlusDessert"
-        android:layout_alignEnd="@+id/btnMinusDish" />
+        android:layout_alignBottom="@+id/btnPlusDessert"
+        android:layout_marginEnd="15dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/btnMinusDish"
+        android:layout_alignTop="@+id/btnPlusDish"
+        android:layout_toEndOf="@+id/btnPlusDish"
+        android:layout_alignBottom="@+id/btnPlusDish"
+        android:layout_marginEnd="15dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -164,7 +163,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
+        android:text="2.00"
         android:id="@+id/txtPriceDrink"
         android:layout_alignTop="@+id/txtDrink"
         android:layout_toEndOf="@+id/txtDrink"
@@ -184,11 +183,11 @@
         android:layout_height="wrap_content"
         android:id="@+id/seekDrink"
         android:layout_alignTop="@+id/txtCurrencyDrink"
-        android:layout_alignStart="@+id/txtDessertQuantity"
         android:layout_alignEnd="@+id/btnUSD"
         android:max="3"
-        android:progress="1"
-        android:indeterminate="false" />
+        android:progress="0"
+        android:indeterminate="false"
+        android:layout_toEndOf="@+id/txtCurrencyDessert" />
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -198,13 +197,12 @@
         android:layout_toStartOf="@+id/btnBGN"
         android:layout_marginTop="37dp"
         android:layout_below="@+id/seekDrink"
-        android:layout_alignEnd="@+id/txtCurrencyDrink"
         android:checked="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10 "
+        android:text="10.00"
         android:id="@+id/txtPriceDelivery"
         android:layout_alignTop="@+id/checkHomeDelivery"
         android:layout_toEndOf="@+id/checkHomeDelivery"
@@ -214,7 +212,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EUR"
+        android:text=" EUR"
         android:id="@+id/txtCurrencyDelivery"
         android:layout_alignTop="@+id/txtPriceDelivery"
         android:layout_toEndOf="@+id/txtPriceDelivery"
@@ -243,30 +241,26 @@
         android:layout_height="wrap_content"
         android:text=" EUR"
         android:id="@+id/txtCurrencyTotalPrice"
-        android:layout_alignTop="@+id/txtLabelPrice"
-        android:layout_alignParentEnd="true"
-        android:textSize="23sp" />
+        android:textSize="23sp"
+        android:layout_toEndOf="@+id/txtTotalPrice"
+        android:layout_alignTop="@+id/txtTotalPrice" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/txtTotalPrice"
-        android:layout_alignTop="@+id/txtCurrencyTotalPrice"
-        android:layout_toStartOf="@+id/txtCurrencyTotalPrice"
+        android:layout_toStartOf="@+id/btnCalculate"
         android:textSize="23sp"
-        android:autoText="false"
-        android:inputType="numberDecimal"
-        android:numeric="decimal" />
+        android:layout_alignTop="@+id/txtLabelPrice" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/about"
         android:id="@+id/btnAbout"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="19dp"
-        android:layout_toEndOf="@+id/txtDish"
-        android:layout_toStartOf="@+id/txtTotalPrice" />
+        android:layout_toEndOf="@+id/btnEUR"
+        android:layout_below="@+id/txtLabelPrice"
+        android:layout_toStartOf="@+id/btnMinusDessert" />
 
 </RelativeLayout>

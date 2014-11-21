@@ -15,11 +15,11 @@ public class AboutActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
-        Button btnBack= (Button) findViewById(R.id.btnBack);
+        Button btnBack = (Button) findViewById(R.id.btnBack);
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(AboutActivity.this,UserActivity.class);
+                Intent intent = new Intent(AboutActivity.this, UserActivity.class);
                 startActivity(intent);
             }
         });

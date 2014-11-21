@@ -10,16 +10,20 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import java.text.NumberFormat;
+
+import java.text.DecimalFormat;
 
 public class UserActivity extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     //<editor-fold desc="Constants">
-    static final int DISH_PRICE=5;
-    static final int DESSERT_PRICE=2;
-    static final int DRINK_PRICE=2;
-    double totalPrice=0;
+    private static final int DISH_PRICE = 5;
+    private static final int DESSERT_PRICE = 2;
+    private static final int DRINK_PRICE = 2;
     //</editor-fold>
-    Currency currentCurrency=Currency.EUR;
+
+    private double totalPrice = 0;
+
+    private Currency currentCurrency = Currency.EUR;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,11 +83,8 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
 
     @Override
     public void onClick(View v) {
-        NumberFormat formatter=NumberFormat.getInstance();
 
-        TextView txtTotalPriceCurrency = (TextView) findViewById(R.id.txtCurrencyTotalPrice);
 
-        TextView txtTotalPrice = (TextView) findViewById(R.id.txtTotalPrice);
         TextView txtDishQuantity = (TextView) findViewById(R.id.txtDishQuantity);
         int dishQuantity = Integer.parseInt(txtDishQuantity.getText().toString());
 
@@ -123,43 +124,68 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
                 }
                 break;
             case R.id.btnCalculate:
-                double tempPrice=0;
-                if (checkDelivery.isChecked()){
-                    tempPrice+=10;
+                double tempPrice = 0;
+                if (checkDelivery.isChecked()) {
+                    tempPrice += 10;
                 }
-                tempPrice+=dishQuantity*DISH_PRICE + dessertQuantity*DESSERT_PRICE + seekDrink.getProgress()*DRINK_PRICE;
-                totalPrice=tempPrice;
-                totalPrice=CurrencyConverter(Currency.EUR,currentCurrency, totalPrice);
-                txtTotalPrice.setText(formatter.format(totalPrice));
+                tempPrice += dishQuantity * DISH_PRICE + dessertQuantity * DESSERT_PRICE + seekDrink.getProgress() * DRINK_PRICE;
+                tempPrice = CurrencyConverter(Currency.EUR, currentCurrency, tempPrice);
+                totalPrice = tempPrice;
+                ConvertAndDisplay(currentCurrency);
                 break;
             case R.id.btnEUR:
-                totalPrice=CurrencyConverter(currentCurrency,Currency.EUR,totalPrice);
-                currentCurrency=Currency.EUR;
-                txtTotalPrice.setText(formatter.format(totalPrice));
-                txtTotalPriceCurrency.setText(currentCurrency.toString());
+                ConvertAndDisplay(Currency.EUR);
                 break;
             case R.id.btnUSD:
-                totalPrice=CurrencyConverter(currentCurrency,Currency.USD,totalPrice);
-                currentCurrency=Currency.USD;
-                txtTotalPrice.setText(formatter.format(totalPrice));
-                txtTotalPriceCurrency.setText(currentCurrency.toString());
+                ConvertAndDisplay(Currency.USD);
                 break;
             case R.id.btnBGN:
-                totalPrice=CurrencyConverter(currentCurrency,Currency.BNG,totalPrice);
-                currentCurrency=Currency.BNG;
-                txtTotalPrice.setText(formatter.format(totalPrice));
-                txtTotalPriceCurrency.setText(currentCurrency.toString());
+                ConvertAndDisplay(Currency.BNG);
                 break;
             case R.id.btnAbout:
-                Intent intent=new Intent(UserActivity.this,AboutActivity.class);
+                Intent intent = new Intent(UserActivity.this, AboutActivity.class);
                 startActivity(intent);
                 break;
         }
         //</editor-fold>
     }
 
+    private void ConvertAndDisplay(Currency futureCurrency) {
+        //<editor-fold desc="TextView init">
+        TextView txtCurrencyDish = (TextView) findViewById(R.id.txtCurrencyDish);
+        TextView txtCurrencyDessert = (TextView) findViewById(R.id.txtCurrencyDessert);
+        TextView txtCurrencyDrink = (TextView) findViewById(R.id.txtCurrencyDrink);
+        TextView txtCurrencyDelivery = (TextView) findViewById(R.id.txtCurrencyDelivery);
+        TextView txtTotalPriceCurrency = (TextView) findViewById(R.id.txtCurrencyTotalPrice);
+        TextView txtTotalPrice = (TextView) findViewById(R.id.txtTotalPrice);
+        TextView txtPriceDish = (TextView) findViewById(R.id.txtPriceDish);
+        TextView txtPriceDrink = (TextView) findViewById(R.id.txtPriceDrink);
+        TextView txtPriceDessert = (TextView) findViewById(R.id.txtPriceDessert);
+        TextView txtPriceDelivery = (TextView) findViewById(R.id.txtPriceDelivery);
+        //</editor-fold>
+
+        DecimalFormat formatter = new DecimalFormat("##0.00");
+
+        totalPrice = CurrencyConverter(currentCurrency, futureCurrency, totalPrice);
+
+        txtPriceDish.setText(formatter.format(CurrencyConverter(currentCurrency, futureCurrency, Double.parseDouble(txtPriceDish.getText().toString()))));
+        txtPriceDessert.setText(formatter.format(CurrencyConverter(currentCurrency, futureCurrency, Double.parseDouble(txtPriceDessert.getText().toString()))));
+        txtPriceDrink.setText(formatter.format(CurrencyConverter(currentCurrency, futureCurrency, Double.parseDouble(txtPriceDrink.getText().toString()))));
+        txtPriceDelivery.setText(formatter.format(CurrencyConverter(currentCurrency, futureCurrency, Double.parseDouble(txtPriceDelivery.getText().toString()))));
+
+        currentCurrency = futureCurrency;
+
+        txtTotalPrice.setText(formatter.format(totalPrice));
+        txtTotalPriceCurrency.setText(currentCurrency.toString());
+
+        txtCurrencyDessert.setText(currentCurrency.toString());
+        txtCurrencyDish.setText(currentCurrency.toString());
+        txtCurrencyDrink.setText(currentCurrency.toString());
+        txtCurrencyDelivery.setText(currentCurrency.toString());
+    }
+
     private double CurrencyConverter(Currency currentCurrency, Currency futureCurrency, double amount) {
-        return (amount/currentCurrency.Exchange())*futureCurrency.Exchange();
+        return (amount / currentCurrency.Exchange()) * futureCurrency.Exchange();
     }
 
     @Override
