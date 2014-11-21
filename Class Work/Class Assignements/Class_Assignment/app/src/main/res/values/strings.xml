@@ -10,7 +10,6 @@
     <string name="activity_four">Activity 4</string>
     <string name="title_activity_activity_one">Activity 1</string>
     <string name="title_activity_activity_two">Activity 2</string>
-    <string name="title_activity_activity_three">Activity 2</string>
-    <string name="title_activity_activity_four">Activity 2</string>
-
+    <string name="title_activity_activity_three">Activity 3</string>
+    <string name="title_activity_activity_four">Activity 4</string>
 </resources>
