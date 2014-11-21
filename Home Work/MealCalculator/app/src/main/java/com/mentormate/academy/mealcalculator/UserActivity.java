@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import java.text.NumberFormat;
 
 public class UserActivity extends Activity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
     //<editor-fold desc="Constants">
@@ -77,6 +78,7 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
 
     @Override
     public void onClick(View v) {
+        NumberFormat formatter=NumberFormat.getInstance();
 
         TextView txtTotalPriceCurrency = (TextView) findViewById(R.id.txtCurrencyTotalPrice);
 
@@ -127,24 +129,24 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
                 tempPrice+=dishQuantity*DISH_PRICE + dessertQuantity*DESSERT_PRICE + seekDrink.getProgress()*DRINK_PRICE;
                 totalPrice=tempPrice;
                 totalPrice=CurrencyConverter(Currency.EUR,currentCurrency, totalPrice);
-                txtTotalPrice.setText(String.valueOf(totalPrice));
+                txtTotalPrice.setText(formatter.format(totalPrice));
                 break;
             case R.id.btnEUR:
                 totalPrice=CurrencyConverter(currentCurrency,Currency.EUR,totalPrice);
                 currentCurrency=Currency.EUR;
-                txtTotalPrice.setText(String.valueOf(totalPrice));
+                txtTotalPrice.setText(formatter.format(totalPrice));
                 txtTotalPriceCurrency.setText(currentCurrency.toString());
                 break;
             case R.id.btnUSD:
                 totalPrice=CurrencyConverter(currentCurrency,Currency.USD,totalPrice);
                 currentCurrency=Currency.USD;
-                txtTotalPrice.setText(String.valueOf(totalPrice));
+                txtTotalPrice.setText(formatter.format(totalPrice));
                 txtTotalPriceCurrency.setText(currentCurrency.toString());
                 break;
             case R.id.btnBGN:
                 totalPrice=CurrencyConverter(currentCurrency,Currency.BNG,totalPrice);
                 currentCurrency=Currency.BNG;
-                txtTotalPrice.setText(String.valueOf(totalPrice));
+                txtTotalPrice.setText(formatter.format(totalPrice));
                 txtTotalPriceCurrency.setText(currentCurrency.toString());
                 break;
         }
