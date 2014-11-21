@@ -4,84 +4,151 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".UserActivity"
-    android:id="@+id/">
+    android:id="@+id/"
+    style="@style/AppTheme">
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Euro (EUR)"
-        android:id="@+id/btnEuro"
-        android:layout_toStartOf="@+id/btnLev"
+        android:text="EUR"
+        android:id="@+id/btnEUR"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="false" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Bulgarian lev (BGN)"
-        android:id="@+id/btnLev"
-        android:layout_alignTop="@+id/btnEuro"
-        android:layout_centerHorizontal="true"
-        android:layout_alignBottom="@+id/btnEuro" />
+        android:text="BGN"
+        android:id="@+id/btnBGN"
+        android:layout_alignTop="@+id/btnEUR"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="US Dollar ($)"
+        android:text="USD"
         android:id="@+id/btnUSD"
-        android:layout_alignTop="@+id/btnLev"
-        android:layout_toEndOf="@+id/btnLev"
-        android:layout_alignBottom="@+id/btnLev" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="@string/dish"
-        android:id="@+id/txtDish"
-        android:layout_toStartOf="@+id/txtDessert"
-        android:layout_marginTop="55dp"
-        android:layout_below="@+id/btnEuro"
-        android:layout_gravity="center" />
+        android:layout_alignTop="@+id/btnBGN"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dessert"
-        android:id="@+id/txtDessert"
-        android:layout_marginTop="64dp"
-        android:layout_toStartOf="@+id/txtDessertPrice"
-        android:layout_below="@+id/txtDish" />
+        android:text="Dish - "
+        android:id="@+id/txtDish"
+        android:layout_below="@+id/btnEUR"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="52dp"
+        android:textSize="23dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="5"
-        android:id="@+id/txtDishPrice"
-        android:layout_toEndOf="@+id/txtDessert"
-        android:layout_alignTop="@+id/txtDish" />
+        android:id="@+id/txtPriceDish"
+        android:layout_alignTop="@+id/txtDish"
+        android:layout_toEndOf="@+id/txtDish"
+        android:textSize="23dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2"
-        android:id="@+id/txtDessertPrice"
-        android:layout_alignBottom="@+id/txtDessert"
-        android:layout_toEndOf="@+id/txtDessert" />
+        android:text=" EUR"
+        android:id="@+id/txtCurrencyDish"
+        android:layout_alignTop="@+id/txtPriceDish"
+        android:layout_toEndOf="@+id/txtPriceDish"
+        android:textSize="23dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/btnPlusDish"
+        android:height="25dp"
+        android:maxWidth="10dp"
+        android:layout_toEndOf="@+id/btnBGN"
+        android:layout_alignTop="@+id/txtDishQuantity"
+        android:layout_toStartOf="@+id/btnUSD"
+        android:padding="0dp"
+        android:layout_marginTop="-10dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/btnMinusDish"
+        android:layout_alignTop="@+id/btnPlusDish"
+        android:layout_toEndOf="@+id/btnPlusDish"
+        android:layout_alignBottom="@+id/btnPlusDish"
+        android:layout_marginRight="33dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EUR"
-        android:id="@+id/txtDishCurrency"
-        android:layout_alignTop="@+id/txtDishPrice"
+        android:text="0"
+        android:id="@+id/txtDishQuantity"
+        android:layout_alignTop="@+id/txtCurrencyDish"
+        android:textSize="23dp"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EUR"
-        android:id="@+id/txtDessertCurrency"
-        android:layout_alignTop="@+id/txtDessertPrice"
-        android:layout_alignStart="@+id/txtDishCurrency" />
+        android:text="Dessert - "
+        android:id="@+id/txtDessert"
+        android:textSize="23dp"
+        android:layout_below="@+id/btnPlusDish"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:id="@+id/txtPriceDessert"
+        android:layout_alignTop="@+id/txtDessert"
+        android:layout_toEndOf="@id/txtDessert"
+        android:textSize="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" EUR"
+        android:id="@+id/txtCurrencyDessert"
+        android:layout_alignTop="@+id/txtPriceDessert"
+        android:layout_toEndOf="@id/txtPriceDessert"
+        android:textSize="23dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:id="@+id/txtDessertQuantity"
+        android:layout_toEndOf="@id/txtCurrencyDessert"
+        android:layout_alignTop="@+id/txtCurrencyDessert"
+        android:layout_alignStart="@+id/txtDishQuantity"
+        android:textSize="23dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/btnPlusDessert"
+        android:layout_alignTop="@+id/txtDessertQuantity"
+        android:layout_alignStart="@+id/btnPlusDish"
+        android:layout_marginTop="-10dp"
+        android:layout_toStartOf="@+id/btnMinusDish" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/btnMinusDessert"
+        android:layout_toEndOf="@+id/btnPlusDish"
+        android:layout_alignTop="@+id/btnPlusDessert"
+        android:layout_alignEnd="@+id/btnMinusDish" />
 
 </RelativeLayout>
