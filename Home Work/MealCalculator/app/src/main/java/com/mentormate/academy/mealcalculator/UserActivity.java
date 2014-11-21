@@ -44,14 +44,14 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
         Button btnAbout = (Button) findViewById(R.id.btnAbout);
         btnAbout.setOnClickListener(this);
 
-        SeekBar seekDrink=(SeekBar) findViewById(R.id.seekDrink);
+        SeekBar seekDrink = (SeekBar) findViewById(R.id.seekDrink);
         seekDrink.setOnSeekBarChangeListener(this);
 
-        CheckBox checkDelivery=(CheckBox) findViewById(R.id.checkHomeDelivery);
+        CheckBox checkDelivery = (CheckBox) findViewById(R.id.checkHomeDelivery);
 
-        TextView txtTotalPrice=(TextView) findViewById(R.id.txtTotalPrice);
+        TextView txtTotalPrice = (TextView) findViewById(R.id.txtTotalPrice);
 
-        TextView txtTotalPriceCurrency= (TextView) findViewById(R.id.txtCurrencyTotalPrice);
+        TextView txtTotalPriceCurrency = (TextView) findViewById(R.id.txtCurrencyTotalPrice);
 
 
     }
@@ -81,6 +81,38 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
     @Override
     public void onClick(View v) {
 
+        TextView txtDishQuantity = (TextView) findViewById(R.id.txtDishQuantity);
+        int dishQuantity = Integer.parseInt(txtDishQuantity.getText().toString());
+
+        TextView txtDessertQuantity = (TextView) findViewById(R.id.txtDessertQuantity);
+        int dessertQuantity = Integer.parseInt(txtDessertQuantity.getText().toString());
+
+
+        switch (v.getId()) {
+            case R.id.btnPlusDish:
+                if (dishQuantity < 10) {
+                    txtDishQuantity.setText(String.valueOf((dishQuantity + 1)));
+                }
+                break;
+            case R.id.btnMinusDish:
+                if (dishQuantity > 0) {
+                    txtDishQuantity.setText(String.valueOf((dishQuantity - 1)));
+                }
+                break;
+        }
+
+        switch (v.getId()) {
+            case R.id.btnPlusDessert:
+                if (dessertQuantity < 10) {
+                    txtDessertQuantity.setText(String.valueOf((dessertQuantity + 1)));
+                }
+                break;
+            case R.id.btnMinusDessert:
+                if (dessertQuantity > 0) {
+                    txtDessertQuantity.setText(String.valueOf((dessertQuantity - 1)));
+                }
+                break;
+        }
     }
 
     @Override
