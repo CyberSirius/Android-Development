@@ -4,5 +4,7 @@
     <string name="app_name">Meal Calculator</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="dish">Dish -</string>
+    <string name="dessert">Dessert -</string>
 
 </resources>

@@ -3,6 +3,85 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".UserActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".UserActivity"
+    android:id="@+id/">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Euro (EUR)"
+        android:id="@+id/btnEuro"
+        android:layout_toStartOf="@+id/btnLev"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="false" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bulgarian lev (BGN)"
+        android:id="@+id/btnLev"
+        android:layout_alignTop="@+id/btnEuro"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/btnEuro" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="US Dollar ($)"
+        android:id="@+id/btnUSD"
+        android:layout_alignTop="@+id/btnLev"
+        android:layout_toEndOf="@+id/btnLev"
+        android:layout_alignBottom="@+id/btnLev" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/dish"
+        android:id="@+id/txtDish"
+        android:layout_toStartOf="@+id/txtDessert"
+        android:layout_marginTop="55dp"
+        android:layout_below="@+id/btnEuro"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dessert"
+        android:id="@+id/txtDessert"
+        android:layout_marginTop="64dp"
+        android:layout_toStartOf="@+id/txtDessertPrice"
+        android:layout_below="@+id/txtDish" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5"
+        android:id="@+id/txtDishPrice"
+        android:layout_toEndOf="@+id/txtDessert"
+        android:layout_alignTop="@+id/txtDish" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2"
+        android:id="@+id/txtDessertPrice"
+        android:layout_alignBottom="@+id/txtDessert"
+        android:layout_toEndOf="@+id/txtDessert" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EUR"
+        android:id="@+id/txtDishCurrency"
+        android:layout_alignTop="@+id/txtDishPrice"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EUR"
+        android:id="@+id/txtDessertCurrency"
+        android:layout_alignTop="@+id/txtDessertPrice"
+        android:layout_alignStart="@+id/txtDishCurrency" />
 
 </RelativeLayout>
