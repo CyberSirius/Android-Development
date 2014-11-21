@@ -10,7 +10,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="EUR"
+        android:text="@string/eur"
         android:id="@+id/btnEUR"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -18,7 +18,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="BGN"
+        android:text="@string/bgn"
         android:id="@+id/btnBGN"
         android:layout_alignTop="@+id/btnEUR"
         android:layout_centerHorizontal="true" />
@@ -26,7 +26,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="USD"
+        android:text="@string/usd"
         android:id="@+id/btnUSD"
         android:layout_alignTop="@+id/btnBGN"
         android:layout_alignParentEnd="true" />
@@ -163,7 +163,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2.00"
+        android:text="1.00"
         android:id="@+id/txtPriceDrink"
         android:layout_alignTop="@+id/txtDrink"
         android:layout_toEndOf="@+id/txtDrink"

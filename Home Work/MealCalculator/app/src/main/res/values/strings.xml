@@ -14,5 +14,8 @@
     <string name="calculate">Calculate!</string>
     <string name="price">Total Price:</string>
     <string name="about">About us</string>
+    <string name="eur">EUR</string>
+    <string name="bgn">BGN</string>
+    <string name="usd">USD</string>
 
 </resources>

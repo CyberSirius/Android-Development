@@ -17,7 +17,7 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
     //<editor-fold desc="Constants">
     private static final int DISH_PRICE = 5;
     private static final int DESSERT_PRICE = 2;
-    private static final int DRINK_PRICE = 2;
+    private static final int DRINK_PRICE = 1;
     //</editor-fold>
 
     private double totalPrice = 0;
