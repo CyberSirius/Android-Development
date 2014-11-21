@@ -1,6 +1,7 @@
 package com.mentormate.academy.mealcalculator;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -148,6 +149,10 @@ public class UserActivity extends Activity implements View.OnClickListener, Seek
                 currentCurrency=Currency.BNG;
                 txtTotalPrice.setText(formatter.format(totalPrice));
                 txtTotalPriceCurrency.setText(currentCurrency.toString());
+                break;
+            case R.id.btnAbout:
+                Intent intent=new Intent(UserActivity.this,AboutActivity.class);
+                startActivity(intent);
                 break;
         }
         //</editor-fold>
