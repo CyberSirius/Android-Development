@@ -34,7 +34,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dish - "
+        android:text="@string/dish"
         android:id="@+id/txtDish"
         android:layout_below="@+id/btnEUR"
         android:layout_alignParentStart="true"
@@ -95,7 +95,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dessert - "
+        android:text="@string/dessert"
         android:id="@+id/txtDessert"
         android:textSize="23dp"
         android:layout_below="@+id/btnPlusDish"
@@ -154,12 +154,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Drink - "
+        android:text="@string/drink"
         android:id="@+id/txtDrink"
         android:layout_below="@+id/btnPlusDessert"
         android:layout_alignParentStart="true"
         android:layout_marginTop="38dp"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -168,7 +168,7 @@
         android:id="@+id/txtPriceDrink"
         android:layout_alignTop="@+id/txtDrink"
         android:layout_toEndOf="@+id/txtDrink"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -177,7 +177,7 @@
         android:id="@+id/txtCurrencyDrink"
         android:layout_alignTop="@+id/txtPriceDrink"
         android:layout_toEndOf="@+id/txtPriceDrink"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <SeekBar
         android:layout_width="wrap_content"
@@ -193,7 +193,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Delivery: "
+        android:text="@string/delivery"
         android:id="@+id/checkHomeDelivery"
         android:layout_toStartOf="@+id/btnBGN"
         android:layout_marginTop="37dp"
@@ -208,7 +208,7 @@
         android:id="@+id/txtPriceDelivery"
         android:layout_alignTop="@+id/checkHomeDelivery"
         android:layout_toEndOf="@+id/checkHomeDelivery"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:layout_marginTop="7dp" />
 
     <TextView
@@ -218,12 +218,12 @@
         android:id="@+id/txtCurrencyDelivery"
         android:layout_alignTop="@+id/txtPriceDelivery"
         android:layout_toEndOf="@+id/txtPriceDelivery"
-        android:textSize="15dp" />
+        android:textSize="15sp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Calculate!"
+        android:text="@string/calculate"
         android:id="@+id/btnCalculate"
         android:layout_alignBottom="@+id/checkHomeDelivery"
         android:layout_alignParentEnd="true" />
@@ -231,12 +231,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Price:"
+        android:text="@string/price"
         android:id="@+id/txtLabelPrice"
         android:layout_below="@+id/checkHomeDelivery"
         android:layout_alignParentStart="true"
         android:layout_marginTop="29dp"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -245,7 +245,7 @@
         android:id="@+id/txtCurrencyTotalPrice"
         android:layout_alignTop="@+id/txtLabelPrice"
         android:layout_alignParentEnd="true"
-        android:textSize="23dp" />
+        android:textSize="23sp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -254,7 +254,7 @@
         android:id="@+id/txtTotalPrice"
         android:layout_alignTop="@+id/txtCurrencyTotalPrice"
         android:layout_toStartOf="@+id/txtCurrencyTotalPrice"
-        android:textSize="23dp"
+        android:textSize="23sp"
         android:autoText="false"
         android:inputType="numberDecimal"
         android:numeric="decimal" />
@@ -262,7 +262,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About us"
+        android:text="@string/about"
         android:id="@+id/btnAbout"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="19dp"

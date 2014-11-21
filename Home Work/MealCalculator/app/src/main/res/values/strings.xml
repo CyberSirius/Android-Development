@@ -2,11 +2,17 @@
 <resources>
 
     <string name="app_name">Meal Calculator</string>
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_about">About</string>
+    <string name="version">Version: 1.0</string>
+    <string name="rights">All rights reserved!</string>
+    <string name="name">Name: Strashimir Rashev</string>
     <string name="dish">Dish -</string>
     <string name="dessert">Dessert -</string>
-    <string name="priceFormat">%1$s%2$.2f</string>
-    <string name="title_activity_about">About Activity</string>
+    <string name="drink">Drink -</string>
+    <string name="delivery">Home Delivery:</string>
+    <string name="calculate">Calculate!</string>
+    <string name="price">Total Price:</string>
+    <string name="about">About us</string>
 
 </resources>
