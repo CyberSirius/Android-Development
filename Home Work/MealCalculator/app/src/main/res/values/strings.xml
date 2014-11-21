@@ -7,4 +7,6 @@
     <string name="dish">Dish -</string>
     <string name="dessert">Dessert -</string>
     <string name="priceFormat">%1$s%2$.2f</string>
+    <string name="title_activity_about">About Activity</string>
+
 </resources>
