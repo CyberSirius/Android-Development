@@ -254,7 +254,10 @@
         android:id="@+id/txtTotalPrice"
         android:layout_alignTop="@+id/txtCurrencyTotalPrice"
         android:layout_toStartOf="@+id/txtCurrencyTotalPrice"
-        android:textSize="23dp" />
+        android:textSize="23dp"
+        android:autoText="false"
+        android:inputType="numberDecimal"
+        android:numeric="decimal" />
 
     <Button
         android:layout_width="wrap_content"
