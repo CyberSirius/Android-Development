@@ -4,5 +4,6 @@
     <string name="app_name">ClassWork(24.11.14)</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="increment_value">Increment Value</string>
 
 </resources>
