@@ -3,17 +3,24 @@ package com.mentormate.academy.classassignment241114;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.Stack;
+
 
 public class Calculator extends Activity implements View.OnClickListener {
     EditText input;
+    Stack<Integer> values = new Stack<Integer>();
+    Stack<Character> operands = new Stack<Character>();
+    int index = 0;
+    int indexOfLastChar = 0;
+    String TAG = getClass().getSimpleName();
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calculator);
@@ -80,12 +87,12 @@ public class Calculator extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        int end = input.length() - 1;
+        indexOfLastChar = input.length() - 1;
         char lastChar;
         if (input.length() == 0) {
             lastChar = '0';
         } else {
-            lastChar = input.getText().charAt(end);
+            lastChar = input.getText().charAt(indexOfLastChar);
         }
 
         switch (v.getId()) {
@@ -123,32 +130,38 @@ public class Calculator extends Activity implements View.OnClickListener {
             //</editor-fold>
             //<editor-fold desc="Arithmetic click">
             case R.id.plus:
-                if (!isArithmeticChar(lastChar)) {
-                    input.append("+");
-                }
+                onArithmeticClick(lastChar, "+");
                 break;
             case R.id.minus:
-                if (!isArithmeticChar(lastChar)) {
-                    input.append("-");
-                }
+                onArithmeticClick(lastChar, "-");
                 break;
             case R.id.multiply:
-                if (!isArithmeticChar(lastChar)) {
-                    input.append("*");
-                }
+                onArithmeticClick(lastChar, "*");
                 break;
             case R.id.divide:
-                if (!isArithmeticChar(lastChar)) {
-                    input.append("/");
-                }
+                onArithmeticClick(lastChar, "/");
                 break;
             //</editor-fold>
             case R.id.clear:
                 input.setText("");
+                index=0;
+                indexOfLastChar=0;
                 break;
             case R.id.equals:
-                String expression = input.getText().toString();
                 break;
+        }
+    }
+
+    private void onArithmeticClick(char lastChar, CharSequence arithmeticSymbol) {
+        if (!isArithmeticChar(lastChar)) {
+            input.append(arithmeticSymbol);
+            indexOfLastChar++;
+            lastChar = input.getText().charAt(indexOfLastChar);
+            operands.push(lastChar);
+            int number = Integer.parseInt(input.getText().toString().substring(index, indexOfLastChar));
+            Log.wtf(TAG, String.valueOf(number));
+            values.push(number);
+            index = indexOfLastChar + 1;
         }
     }
 
