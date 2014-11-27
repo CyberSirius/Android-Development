@@ -148,6 +148,13 @@ public class Calculator extends Activity implements View.OnClickListener {
                 indexOfLastChar=0;
                 break;
             case R.id.equals:
+                if(isArithmeticChar(lastChar)){
+                    operands.pop();
+                    String text=input.getText().toString();
+                    text=text.substring(0,indexOfLastChar);
+                    input.setText(text);
+                }
+                input.append("=");
                 break;
         }
     }
