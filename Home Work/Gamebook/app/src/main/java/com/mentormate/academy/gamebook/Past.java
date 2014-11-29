@@ -1,17 +1,24 @@
 package com.mentormate.academy.gamebook;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 
-public class Past extends Activity {
+public class Past extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past);
+        Button btnPresent= (Button) findViewById(R.id.btnPresent);
+        btnPresent.setOnClickListener(this);
+        Button btnFuture= (Button) findViewById(R.id.btnFuture);
+        btnFuture.setOnClickListener(this);
     }
 
 
@@ -35,5 +42,19 @@ public class Past extends Activity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btnPresent:
+                Intent presentIntent=new Intent(this, Present.class);
+                startActivity(presentIntent);
+                break;
+            case R.id.btnFuture:
+                Intent futureIntent=new Intent(this, Future.class);
+                startActivity(futureIntent);
+                break;
+        }
     }
 }

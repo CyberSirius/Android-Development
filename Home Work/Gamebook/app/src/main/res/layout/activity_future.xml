@@ -23,8 +23,7 @@
         android:text="@string/lblPast"
         android:id="@+id/btnPast"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="37dp" />
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,4 +48,23 @@
             android:textSize="20dp"
             android:id="@+id/txtFuture" />
     </ScrollView>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spChoice"
+        android:layout_toStartOf="@+id/lblFuture"
+        android:spinnerMode="dropdown"
+        android:layout_above="@+id/btnPast"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="25dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/txtChoose"
+        android:id="@+id/btnChoose"
+        android:layout_toEndOf="@+id/spChoice"
+        android:layout_alignTop="@+id/spChoice"
+        android:layout_alignEnd="@+id/scrollView"
+        android:layout_alignStart="@+id/btnPresent" />
 </RelativeLayout>

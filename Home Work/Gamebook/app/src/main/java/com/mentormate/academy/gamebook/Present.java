@@ -1,6 +1,7 @@
 package com.mentormate.academy.gamebook;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -53,7 +54,17 @@ public class Present extends Activity implements View.OnClickListener, AdapterVi
 
     @Override
     public void onClick(View v) {
-
+        switch(v.getId())
+        {
+            case R.id.btnPast:
+                Intent pastIntent=new Intent(this,Past.class);
+                startActivity(pastIntent);
+                break;
+            case R.id.btnFuture:
+                Intent futureIntent=new Intent(this, Future.class);
+                startActivity(futureIntent);
+                break;
+        }
     }
 
     @Override
