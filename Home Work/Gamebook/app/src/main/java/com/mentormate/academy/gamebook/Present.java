@@ -11,8 +11,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
+import java.util.LinkedList;
+
 
 public class Present extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
+    private LinkedList<Boolean> choices = new LinkedList<Boolean>();
+    private boolean choice = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,9 @@ public class Present extends Activity implements View.OnClickListener, AdapterVi
         past.setOnClickListener(this);
         Button future = (Button) findViewById(R.id.btnFuture);
         future.setOnClickListener(this);
+
+        Button choose = (Button) findViewById(R.id.btnChoose);
+        choose.setOnClickListener(this);
         Spinner choice = (Spinner) findViewById(R.id.spChoice);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.choices, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -54,22 +61,24 @@ public class Present extends Activity implements View.OnClickListener, AdapterVi
 
     @Override
     public void onClick(View v) {
-        switch(v.getId())
-        {
+        switch (v.getId()) {
             case R.id.btnPast:
-                Intent pastIntent=new Intent(this,Past.class);
+                Intent pastIntent = new Intent(this, Past.class);
                 startActivity(pastIntent);
                 break;
             case R.id.btnFuture:
-                Intent futureIntent=new Intent(this, Future.class);
+                Intent futureIntent = new Intent(this, Future.class);
                 startActivity(futureIntent);
+                break;
+            case R.id.btnChoose:
+                choices.add(choice);
                 break;
         }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
+        choice = !(parent.getItemAtPosition(position) == parent.getItemAtPosition(1) || parent.getItemAtPosition(0).equals(parent.getItemAtPosition(position)));
     }
 
     @Override
