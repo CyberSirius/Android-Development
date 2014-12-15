@@ -11,11 +11,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 
 public class Present extends Activity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
-    private LinkedList<Boolean> choices = new LinkedList<Boolean>();
+    private ArrayList<Boolean> choices = new ArrayList<Boolean>();
     private boolean choice = true;
 
     @Override
@@ -26,7 +26,6 @@ public class Present extends Activity implements View.OnClickListener, AdapterVi
         past.setOnClickListener(this);
         Button future = (Button) findViewById(R.id.btnFuture);
         future.setOnClickListener(this);
-
         Button choose = (Button) findViewById(R.id.btnChoose);
         choose.setOnClickListener(this);
         Spinner choice = (Spinner) findViewById(R.id.spChoice);
@@ -34,6 +33,10 @@ public class Present extends Activity implements View.OnClickListener, AdapterVi
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         choice.setAdapter(adapter);
         choice.setOnItemSelectedListener(this);
+        Bundle extras = getIntent().getExtras();
+        if (!extras.getParcelableArrayList("choices").isEmpty()){
+            choices=extras.getBooleanArray("choices");
+        }
     }
 
 
@@ -64,10 +67,12 @@ public class Present extends Activity implements View.OnClickListener, AdapterVi
         switch (v.getId()) {
             case R.id.btnPast:
                 Intent pastIntent = new Intent(this, Past.class);
+                pastIntent.putExtra("choices", choices);
                 startActivity(pastIntent);
                 break;
             case R.id.btnFuture:
                 Intent futureIntent = new Intent(this, Future.class);
+                futureIntent.putExtra("choices", choices);
                 startActivity(futureIntent);
                 break;
             case R.id.btnChoose:
