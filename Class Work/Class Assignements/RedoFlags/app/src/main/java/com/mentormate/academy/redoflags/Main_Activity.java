@@ -1,5 +1,8 @@
 package com.mentormate.academy.redoflags;
 
+import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -23,10 +26,28 @@ public class Main_Activity extends ActionBarActivity {
         setContentView(R.layout.activity_main_);
         list = (GridView) findViewById(R.id.grid);
         populateCountries();
-        adapter = new CustomAdapterGrid(this, countryList);
+        handleIntent(getIntent());
+    }
+
+    private void handleIntent(Intent intent) {
+        if (Intent.ACTION_SEARCH.equals(intent.getAction())) {
+            String query = intent.getStringExtra(SearchManager.QUERY);
+            adapter = new CustomAdapterGrid(this, getResults(query));
+        } else {
+            adapter = new CustomAdapterGrid(this, countryList);
+        }
         setListAdapter();
     }
 
+    private ArrayList<Country> getResults(String query) {
+        ArrayList<Country> result = new ArrayList<>();
+        for (Country country : countryList) {
+            if (country.getName().toLowerCase().contains(query.toLowerCase())) {
+                result.add(country);
+            }
+        }
+        return result;
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -43,11 +64,25 @@ public class Main_Activity extends ActionBarActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+
+        switch (id) {
+            case R.id.action_settings:
+                return true;
+            case R.id.searchAction:
+                return onSearchRequested();
+            case R.id.clear:
+                adapter = new CustomAdapterGrid(this, countryList);
+                setListAdapter();
+                return true;
+
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        handleIntent(intent);
     }
 
     private void setListAdapter() {
